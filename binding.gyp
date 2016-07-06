@@ -2,17 +2,19 @@
     'targets': [
         {
             'target_name': 'osIdleTimer',
-            'sources': [
-                './src/module.cc',
-                './src/win/idleTime.c'
-            ],
-
             'include_dirs': [
-                './src/idleTime.h'
+                './src'
+            ],
+            'sources': [
+                './src/module.cc'
             ],
 
             'conditions': [
                 ['OS == "win"', {
+                    'sources': [
+                        './src/win/idleTime.c'
+                    ],
+
                     'libraries': [],
                     'configurations' : {
                         'Debug' : {
@@ -40,12 +42,21 @@
                         }
                     }
                 }],
-                ['OS == "darwin"', {
+                ['OS == "mac"', {
+                    'sources': [
+                        './src/mac/idleTime.c'
+                    ],
                     'xcode_settings': {
-                        'GCC_ENABLE_CPP_RTTI': 'YES',
-                        "OTHER_CFLAGS": [ "-D__MAC_OS__ -DOSX" ]
+                        "OTHER_CFLAGS": [
+                            "-D__MAC_OS__",
+                            "-DOSX",
+                            "-Wall"
+                        ],
+                        "OTHER_LDFLAGS": [
+                            "-framework IOKit",
+                            "-framework Carbon"
+                        ]
                     },
-                    'libraries': []
                 }]
             ]
         }

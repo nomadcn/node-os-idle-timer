@@ -49,6 +49,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+static int64_t getIdleTimeByCFTypeRef(CFTypeRef obj);
+
 int64_t getIdleTime_ms()
 {
     int64_t idleTime_ms = -1;
@@ -61,14 +67,14 @@ int64_t getIdleTime_ms()
     /* Get IOHIDSystem */
     IOServiceGetMatchingServices(
         masterPort, IOServiceMatching("IOHIDSystem"), &iter);
-    if (iter)
+    if (iter == 0)
     {
         printf("Error accessing IOHIDSystem\n");
         return -1;
     }
 
     curObj = IOIteratorNext(iter);
-    if (curObj == NULL)
+    if (curObj == 0)
     {
         printf("Iterator's empty!\n");
         IOObjectRelease(iter);
@@ -93,7 +99,7 @@ int64_t getIdleTime_ms()
 
     if (obj)
     {
-        idleTime_ms = getIdleTime_ms(obj);
+        idleTime_ms = getIdleTimeByCFTypeRef(obj);
         CFRelease(obj);
     }
 
@@ -105,10 +111,8 @@ int64_t getIdleTime_ms()
     return idleTime_ms;
 }
 
-int64_t getIdleTime_ms(CFTypeRef obj)
+int64_t getIdleTimeByCFTypeRef(CFTypeRef obj)
 {
-    int ret = 0;
-
     if (obj == NULL)
     {
         return -1;
@@ -133,5 +137,9 @@ int64_t getIdleTime_ms(CFTypeRef obj)
     }
 
     // unit conversion: ns(10^-9s) -> ms(10^-3s)
-    return (int64_t) (tHandle / 1000000LL);
+    return (int64_t)(tHandle / 1000000LL);
 }
+
+#ifdef __cplusplus
+}
+#endif
