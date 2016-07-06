@@ -8,5 +8,11 @@
     "scripts": {
         "install": "node-gyp rebuild"
     },
-    "author": "goldworm@nomadconnection.com"
+    "author": "goldworm@nomadconnection.com",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/goldworm/os-idle-timer.git"
+    },
+    "os": [ "darwin", "win32" ]
 }

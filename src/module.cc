@@ -15,7 +15,6 @@ void GetIdleTime_ms(const FunctionCallbackInfo<Value>& args)
 
     const uint32_t idleTime_ms = (uint32_t)getIdleTime_ms();
 
-    // unit conversion: ms -> sec
     Local<Number> js_ret = Number::New(isolate, idleTime_ms);
     args.GetReturnValue().Set(js_ret);
 }
