@@ -1,0 +1,12 @@
+{
+    "name": "os-idle-timer",
+    "version": "1.0.0",
+    "description": "os-dependent idle timer",
+    "main": "index.js",
+    "private": true,
+    "gypfile": true,
+    "scripts": {
+        "install": "node-gyp rebuild"
+    },
+    "author": "goldworm@nomadconnection.com"
+}
