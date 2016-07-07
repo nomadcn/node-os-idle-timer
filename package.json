@@ -1,9 +1,9 @@
 {
     "name": "os-idle-timer",
     "version": "1.0.0",
-    "description": "os-dependent idle timer",
+    "description": "Cross platform os idle timer",
     "main": "index.js",
-    "private": true,
+    "private": false,
     "gypfile": true,
     "scripts": {
         "install": "node-gyp rebuild"
