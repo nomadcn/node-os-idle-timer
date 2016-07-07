@@ -1,18 +1,21 @@
 {
-    "name": "os-idle-timer",
-    "version": "1.0.0",
-    "description": "Cross platform os idle timer",
-    "main": "index.js",
-    "private": false,
-    "gypfile": true,
-    "scripts": {
-        "install": "node-gyp rebuild"
-    },
-    "author": "superdoli@gmail.com",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://bitbucket.org/goldworm/os-idle-timer.git"
-    },
-    "os": [ "darwin", "win32" ]
+  "name": "os-idle-timer",
+  "version": "1.0.1",
+  "description": "Cross platform os idle timer",
+  "main": "index.js",
+  "private": false,
+  "gypfile": true,
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "author": "superdoli@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/goldworm/os-idle-timer.git"
+  },
+  "os": [
+    "darwin",
+    "win32"
+  ]
 }
