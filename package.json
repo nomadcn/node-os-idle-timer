@@ -8,7 +8,7 @@
     "scripts": {
         "install": "node-gyp rebuild"
     },
-    "author": "goldworm@nomadconnection.com",
+    "author": "superdoli@gmail.com",
     "license": "MIT",
     "repository": {
         "type": "git",

@@ -14,12 +14,12 @@ OSIdleTimer.prototype.set = function(callback, idleTime_ms) {
     function _callback(handle) {
         clearTimeout(handle.timeoutObject);
 
-        var diff = idleTime_ms - idle.getIdleTime_ms();
+        var diff = handle.idleTime_ms - idle.getIdleTime_ms();
         if (diff <= 0) {
             callback(handle.idleTime_ms);
         } else {
             handle.timeoutObject = setTimeout(_callback, diff, handle);
-            console.log('timeout: ' + diff);
+            //console.log('timeout: ' + diff);
         }
     }
 
