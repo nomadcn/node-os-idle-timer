@@ -10,13 +10,15 @@ function OSIdleTimer() {
 
 OSIdleTimer.prototype.set = function(callback, idleTime_ms) {
 
+    var self = this;
+
     // Timeout callback
     function _callback(handle) {
 
         var diff = handle.idleTime_ms - idle.getIdleTime_ms();
         if (diff <= 0) {
             callback(handle.idleTime_ms);
-            this.clear(handle);
+            self.clear(handle);
         } else {
             clearTimeout(handle.timeoutObject);
             handle.timeoutObject = setTimeout(_callback, diff, handle);
@@ -25,7 +27,7 @@ OSIdleTimer.prototype.set = function(callback, idleTime_ms) {
 
     var handle = {};
     handle.timeoutObject =
-        setTimeout(_callback.bind(this), idleTime_ms, handle);
+        setTimeout(_callback, idleTime_ms, handle);
     handle.idleTime_ms = idleTime_ms;
     handle.callback = callback;
     this._handles.push(handle);

@@ -1,8 +1,11 @@
 const idleTimer = require('../index.js');
 
+/**
+ * Once this idleTimer callback is called,
+ * it is automatically cleared from idleTimer.
+ */
 function callback(idleTime_ms) {
     console.log('idleTimer is called. ' + idleTime_ms);
-    idleTimer.clearIdleTimer();
 }
 
 setInterval(() => {
