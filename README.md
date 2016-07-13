@@ -1,5 +1,5 @@
 # os-idle-timer
-Detect user's system inactivity.
+Detect user's system inactivity.  
 Windows and Mac only
 
 # Requisites
