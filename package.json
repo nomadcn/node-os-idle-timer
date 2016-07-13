@@ -20,6 +20,7 @@
     "win32"
   ],
   "devDependencies": {
-    "electron-prebuilt": "^1.2.6"
+    "electron-prebuilt": "^1.2.6",
+    "node-gyp": "^3.4.0"
   }
 }
