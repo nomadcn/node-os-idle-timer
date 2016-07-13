@@ -1,12 +1,13 @@
 {
   "name": "os-idle-timer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cross platform os idle timer",
   "main": "index.js",
   "private": false,
   "gypfile": true,
   "scripts": {
-    "install": "node-gyp rebuild"
+    "install": "node-gyp rebuild",
+    "electron-install": "node ./scripts/build.js"
   },
   "author": "superdoli@gmail.com",
   "license": "MIT",
@@ -17,5 +18,8 @@
   "os": [
     "darwin",
     "win32"
-  ]
+  ],
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.6"
+  }
 }
