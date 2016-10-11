@@ -1,6 +1,8 @@
 'use strict';
-
-const idle = require('./build/Release/osIdleTimer');
+var binary = require('node-pre-gyp');
+var path = require('path');
+var binding_path = binary.find(path.resolve(path.join(__dirname,'./package.json')));
+var idle = require(binding_path);
 
 var _osIdleTimer = new OSIdleTimer();
 
