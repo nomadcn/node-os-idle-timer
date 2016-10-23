@@ -1,11 +1,11 @@
 {
   "name": "os-idle-timer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Cross platform os idle timer",
   "main": "./index.js",
   "gypfile": true,
   "scripts": {
-	"preinstall": "npm install node-pre-gyp",
+    "preinstall": "npm install node-pre-gyp",
     "install": "node-pre-gyp install --fallback-to-build"
   },
   "author": "callsync@nomadconnection.com",
@@ -14,14 +14,13 @@
     "type": "git",
     "url": "https://github.com/nomadcn/node-os-idle-timer.git"
   },
-  "dependencies"  : {
+  "dependencies": {
     "nan": "2.x",
     "node-pre-gyp": "0.6.x"
   },
   "binary": {
     "module_name": "os-idle-timer",
-    "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/"
-,
+    "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
     "host": "https://github.com/nomadcn/node-os-idle-timer/releases/download/",
     "remote_path": "{version}"

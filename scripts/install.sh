@@ -23,7 +23,9 @@ export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
 
+rm -rf ./build
+
 node-pre-gyp configure --target_arch=$ARCH && \
 node-pre-gyp build --target_arch=$ARCH && \
 node-pre-gyp package --target_arch=$ARCH && \
-node-pre-gyp-github publish
+node-pre-gyp-github publish --release
